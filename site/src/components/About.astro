@@ -1,0 +1,28 @@
+---
+import CapabilityCard from './CapabilityCard.astro';
+import { capabilities, profile } from '../data/siteData';
+---
+
+<section class="section-frame" id="about" aria-labelledby="about-title">
+  <div class="container frame-container">
+    <div class="frame-label">
+      <p class="section-kicker">About</p>
+      <h2 id="about-title">プロフィール</h2>
+      <div class="short-rule"></div>
+    </div>
+    <div class="frame-content">
+      <p class="section-lead">{profile.intro}</p>
+      <div class="capability-grid">
+        {
+          capabilities.map((capability) => (
+            <CapabilityCard
+              title={capability.title}
+              description={capability.description}
+              icon={capability.icon}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

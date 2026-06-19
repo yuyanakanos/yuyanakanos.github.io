@@ -1,0 +1,30 @@
+---
+const humanItems = ['面白さ', '賭けどころ', '編集の成立'];
+const aiItems = ['調査', '整理', '下書き', '検査', '進行管理', '判断手順の蓄積'];
+---
+
+<div class="hero-split">
+  <div class="split-grid">
+    <div class="split-col split-human">
+      <div class="split-label">
+        <span class="label-num">01</span>
+        <span class="label-name">HUMAN</span>
+      </div>
+      <div class="split-name">残す判断</div>
+      <ul class="split-terms">
+        {humanItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <div class="split-col split-ai">
+      <div class="split-label">
+        <span class="label-num">02</span>
+        <span class="label-name">AI / WORKFLOW</span>
+      </div>
+      <div class="split-name">渡す作業</div>
+      <ul class="split-terms split-terms-cols">
+        {aiItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+---
+interface Props {
+  name:
+    | 'arrow'
+    | 'circles'
+    | 'cube'
+    | 'cursor'
+    | 'eye'
+    | 'flow'
+    | 'grid'
+    | 'mail'
+    | 'microphone'
+    | 'mountain'
+    | 'pencil'
+    | 'sparkle'
+    | 'speech'
+    | 'sun'
+    | 'wave';
+  class?: string;
+}
+
+const { name, class: className = '' } = Astro.props;
+---
+
+<span class:list={['motif-icon', `motif-icon-${name}`, className]} aria-hidden="true">
+  {
+    name === 'eye' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M4 24s7-12 20-12 20 12 20 12-7 12-20 12S4 24 4 24Z" />
+        <circle cx="24" cy="24" r="7" />
+        <path d="M24 5v4M24 39v4M9 11l3 3M36 34l3 3" />
+      </svg>
+    )
+  }
+  {
+    name === 'sparkle' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M24 4l4.8 14.2L43 24l-14.2 5.8L24 44l-5.8-14.2L4 24l14.2-5.8L24 4Z" />
+        <path d="M39 6l1.8 5.2L46 13l-5.2 1.8L39 20l-1.8-5.2L32 13l5.2-1.8L39 6Z" />
+      </svg>
+    )
+  }
+  {
+    name === 'speech' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M8 12h32v20H21l-9 7v-7H8V12Z" />
+        <path d="M17 22h2M23 22h2M29 22h2" />
+      </svg>
+    )
+  }
+  {
+    name === 'grid' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M8 8h32M8 18h32M8 28h32M8 38h32M8 8v30M18 8v30M28 8v30M38 8v30" />
+      </svg>
+    )
+  }
+  {
+    name === 'cursor' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M11 5l25 25-13 2-6 11L11 5Z" />
+      </svg>
+    )
+  }
+  {
+    name === 'pencil' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M12 35l2-9L34 6l8 8-20 20-10 1Z" />
+        <path d="M29 11l8 8M13 26l9 8M10 40h28" />
+      </svg>
+    )
+  }
+  {
+    name === 'microphone' && (
+      <svg viewBox="0 0 48 48">
+        <rect x="17" y="6" width="14" height="24" rx="7" />
+        <path d="M10 22c0 8 6 14 14 14s14-6 14-14M24 36v7M16 43h16" />
+      </svg>
+    )
+  }
+  {
+    name === 'cube' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M24 4l17 10v20L24 44 7 34V14L24 4Z" />
+        <path d="M7 14l17 10 17-10M24 24v20" />
+        <circle cx="24" cy="24" r="5" />
+      </svg>
+    )
+  }
+  {
+    name === 'flow' && (
+      <svg viewBox="0 0 48 48">
+        <circle cx="10" cy="12" r="5" />
+        <circle cx="38" cy="12" r="5" />
+        <circle cx="10" cy="36" r="5" />
+        <circle cx="38" cy="36" r="5" />
+        <path d="M15 12h18M38 17v14M33 36H15M10 17v14" />
+      </svg>
+    )
+  }
+  {
+    name === 'sun' && (
+      <svg viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="10" />
+        <circle cx="24" cy="24" r="16" />
+        <circle cx="24" cy="24" r="21" />
+      </svg>
+    )
+  }
+  {
+    name === 'wave' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M4 18c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4M4 29c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4" />
+      </svg>
+    )
+  }
+  {
+    name === 'mountain' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M5 38l14-23 9 14 5-8 10 17H5Z" />
+        <path d="M19 15l2 9 7 5" />
+      </svg>
+    )
+  }
+  {
+    name === 'circles' && (
+      <svg viewBox="0 0 48 48">
+        <circle cx="20" cy="21" r="11" />
+        <circle cx="30" cy="21" r="11" />
+        <circle cx="25" cy="31" r="11" />
+      </svg>
+    )
+  }
+  {
+    name === 'mail' && (
+      <svg viewBox="0 0 48 48">
+        <rect x="6" y="12" width="36" height="25" rx="2" />
+        <path d="M8 15l16 13 16-13" />
+      </svg>
+    )
+  }
+  {
+    name === 'arrow' && (
+      <svg viewBox="0 0 48 48">
+        <path d="M8 24h30M27 12l12 12-12 12" />
+      </svg>
+    )
+  }
+</span>

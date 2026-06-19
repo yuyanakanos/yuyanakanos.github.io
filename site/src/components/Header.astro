@@ -1,0 +1,23 @@
+---
+import MotifIcon from './MotifIcon.astro';
+import { navItems } from '../data/siteData';
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand-mark" href="/" aria-label="Yuya Nakano portfolio home">
+      <span class="brand-letters">YN</span>
+      <MotifIcon name="sparkle" class="brand-sparkle" />
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      {
+        navItems.map((item) => (
+          <a href={item.href} class="nav-link">
+            {item.label}
+          </a>
+        ))
+      }
+      <MotifIcon name="sparkle" class="nav-sparkle" />
+    </nav>
+  </div>
+</header>

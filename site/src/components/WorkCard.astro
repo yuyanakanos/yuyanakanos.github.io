@@ -1,0 +1,72 @@
+---
+import type { Work } from '../data/works';
+
+type Props = Work;
+
+const { title, description, tags, type } = Astro.props;
+---
+
+<article class:list={['work-card', `work-card-${type}`]}>
+  <div class="work-thumb" aria-hidden="true">
+    {
+      type === 'city' && (
+        <svg viewBox="0 0 360 190">
+          <path class="thumb-paper" d="M0 0h360v190H0z" />
+          <circle class="thumb-yellow" cx="252" cy="62" r="36" />
+          <path class="thumb-blue-fill" d="M0 132h360v58H0z" />
+          <path class="thumb-line" d="M28 132V83h28v49M67 132V65h24v67M104 132v-34h36v34M158 132V54h28v78M205 132V92h44v40M270 132V74h38v58M322 132v-26h20v26" />
+          <path class="thumb-line thin" d="M20 132h320M175 54l-17 78M175 54l17 78M144 83h62M134 106h82" />
+        </svg>
+      )
+    }
+    {
+      type === 'brand' && (
+        <svg viewBox="0 0 360 190">
+          <path class="thumb-paper" d="M0 0h360v190H0z" />
+          <circle class="thumb-pink" cx="118" cy="64" r="30" />
+          <circle class="thumb-yellow" cx="151" cy="72" r="28" />
+          <circle class="thumb-cyan" cx="134" cy="99" r="30" />
+          <path class="thumb-line" d="M212 63h42v88h-42zM265 86h33v65h-33zM174 101h27v50h-27z" />
+          <path class="thumb-line thin" d="M221 86h24M221 104h24M274 108h15M274 124h15M181 121h13" />
+          <path class="thumb-blue-fill soft" d="M210 52h44v12h-44zM267 73h29v13h-29zM178 91h19v10h-19z" />
+        </svg>
+      )
+    }
+    {
+      type === 'ai' && (
+        <svg viewBox="0 0 360 190">
+          <path class="thumb-paper" d="M0 0h360v190H0z" />
+          <circle class="thumb-pink soft" cx="108" cy="78" r="54" />
+          <circle class="thumb-cyan soft" cx="212" cy="108" r="62" />
+          <path class="thumb-line" d="M68 124l61-49 65 33 64-51M129 75l44 76M194 108l-21 43M258 57l-85 94" />
+          <circle class="thumb-node" cx="68" cy="124" r="6" />
+          <circle class="thumb-node" cx="129" cy="75" r="6" />
+          <circle class="thumb-node" cx="194" cy="108" r="6" />
+          <circle class="thumb-node" cx="258" cy="57" r="6" />
+          <circle class="thumb-node" cx="173" cy="151" r="6" />
+          <text class="thumb-ai" x="260" y="137">AI</text>
+        </svg>
+      )
+    }
+    {
+      type === 'report' && (
+        <svg viewBox="0 0 360 190">
+          <path class="thumb-paper" d="M0 0h360v190H0z" />
+          <path class="thumb-line" d="M62 37h114v119H62zM191 55h108v101H191z" />
+          <path class="thumb-line thin" d="M80 60h72M80 78h58M80 96h76M80 114h52M210 78h58M210 96h70M210 114h49" />
+          <path class="thumb-blue-fill" d="M86 130h16v16H86zM112 121h16v25h-16zM138 111h16v35h-16z" />
+          <path class="thumb-yellow" d="M248 128a27 27 0 1 0-27-27h27v27Z" />
+          <path class="thumb-cyan" d="M252 128a27 27 0 0 0 0-54v27h-27a27 27 0 0 0 27 27Z" />
+          <path class="thumb-pink" d="M252 74a27 27 0 0 0-27 27h27V74Z" />
+        </svg>
+      )
+    }
+  </div>
+  <div class="work-body">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <ul class="tag-list" aria-label="担当領域">
+      {tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+  </div>
+</article>

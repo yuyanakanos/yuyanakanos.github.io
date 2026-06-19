@@ -1,0 +1,47 @@
+---
+import MotifIcon from './MotifIcon.astro';
+import { profile } from '../data/siteData';
+---
+
+<section class="hero-section" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <div class="hero-sun"><MotifIcon name="sun" /></div>
+      <h1 id="hero-title">{profile.name}</h1>
+      <p class="hero-role">{profile.role}</p>
+      <div class="short-rule"></div>
+      <p class="hero-tagline">{profile.tagline}</p>
+      <MotifIcon name="sparkle" class="hero-copy-sparkle" />
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <MotifIcon name="eye" class="visual-eye" />
+      <MotifIcon name="speech" class="visual-speech" />
+      <MotifIcon name="grid" class="visual-grid-icon" />
+      <MotifIcon name="cursor" class="visual-cursor" />
+      <MotifIcon name="wave" class="visual-wave" />
+      <MotifIcon name="mountain" class="visual-mountain" />
+      <div class="halftone-sun"></div>
+      <div class="visual-note">
+        <svg viewBox="0 0 580 330" role="img">
+          <path class="shape-fill-blue paper-shadow" d="M260 205h184l50 78H214l46-78Z" />
+          <path class="shape-line" d="M272 132c39-9 68-4 91 14 25-19 57-24 95-14v111c-43-10-73-3-95 17-25-20-54-27-91-17V132Z" />
+          <path class="shape-line thin" d="M363 146v114" />
+          <path class="shape-line thin" d="M291 155h50M291 171h46M291 187h52M291 203h42M291 219h48" />
+          <path class="shape-line thin" d="M385 155h54M385 171h48M385 187h52M385 203h44M385 219h50" />
+          <path class="shape-fill-yellow" d="M205 179a32 32 0 1 0 64 0 32 32 0 0 0-64 0" />
+          <path class="shape-line" d="M115 247c28 0 55 0 83 1 9 0 17 18 8 31-10 14-63 16-91 2-13-7-12-34 0-34Z" />
+          <path class="shape-line thin" d="M116 246c28 15 71 14 91 0M183 255h28c18 0 19 31-7 33" />
+          <path class="shape-fill-blue" d="M427 84c24 2 43 21 43 44v82h-86v-82c0-23 19-42 43-44Z" />
+          <path class="shape-line thin" d="M393 124c15 9 54 9 69 0M400 148c14 7 41 7 55 0M407 171c11 6 30 6 41 0" />
+          <path class="shape-line" d="M427 84c-10-21 0-41 26-51" />
+          <path class="shape-line accent-lime" d="M452 33c9 4 11 12 7 20-10-1-15-9-7-20ZM432 52c9 4 11 12 7 20-10-1-15-9-7-20ZM467 56c9 4 11 12 7 20-10-1-15-9-7-20Z" />
+          <path class="shape-line" d="M500 219h-108l-11 50h143l-24-50Z" />
+          <path class="shape-line thin" d="M402 235h92M397 250h105M414 220l-8 49M476 220l12 49" />
+          <path class="shape-line pencil" d="M466 121l17 12-88 121-20 8 4-22 87-119Z" />
+          <path class="shape-fill-pink" d="M330 227h30v18h-30z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

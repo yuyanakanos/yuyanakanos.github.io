@@ -1,0 +1,24 @@
+---
+interface Props {
+  num: string;
+  label: string;
+  cap: string;
+  title: string;
+  lede?: string;
+}
+
+const { num, label, cap, title, lede } = Astro.props;
+---
+
+<div class="row row-head">
+  <div class="row-meta">
+    <div class="meta-num">{num}</div>
+    <div class="meta-label">{label}</div>
+    <div class="meta-cap">{cap}</div>
+  </div>
+  <div class="row-content">
+    <h2 class="section-title">{title}</h2>
+    {lede && <p class="section-lede" set:html={lede} />}
+    <slot />
+  </div>
+</div>

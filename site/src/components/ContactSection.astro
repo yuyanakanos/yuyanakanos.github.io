@@ -1,0 +1,44 @@
+---
+const themes = [
+  { id: '01', text: '編集企画の相談' },
+  { id: '02', text: 'AIワークフロー設計' },
+  { id: '03', text: 'ナレッジ整理・チーム導入' },
+  { id: '04', text: '社内勉強会・登壇' },
+];
+
+const email = 'ny3882199@gmail.com';
+---
+
+<section class="section section-contact" id="contact" data-reveal>
+  <div class="container">
+    <div class="row row-head">
+      <div class="row-meta">
+        <div class="meta-num">05</div>
+        <div class="meta-label">CONTACT</div>
+        <div class="meta-cap">相談できること</div>
+      </div>
+      <div class="row-content">
+        <p class="contact-intro">
+          企画、編集、AI活用、ナレッジ設計に関するご相談はこちらから。
+          要件が固まっていない段階でも、課題の整理から相談できます。
+        </p>
+
+        <ul class="contact-themes">
+          {
+            themes.map((t) => (
+              <li>
+                <span class="chip chip-theme">{t.id}</span>
+                <span class="theme-text">{t.text}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="contact-email-block">
+          <span class="contact-email-cap">EMAIL</span>
+          <a href={`mailto:${email}`} class="contact-email">{email}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

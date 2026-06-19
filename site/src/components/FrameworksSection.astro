@@ -1,0 +1,113 @@
+---
+import SectionHead from './SectionHead.astro';
+
+type Applied = { chip: 'CW' | 'BS' | 'AI' | 'RO'; text: string };
+type Framework = {
+  num: string;
+  title: string;
+  lede: string;
+  steps?: { num: string; text: string }[];
+  body?: string;
+  applied: Applied[];
+};
+
+const chipClass: Record<string, string> = {
+  CW: 'chip chip-cw',
+  BS: 'chip chip-bs',
+  AI: 'chip chip-ai',
+  RO: 'chip chip-ro',
+};
+
+const frameworks: Framework[] = [
+  {
+    num: 'F · 01',
+    title: '広告を、読まれる編集企画に変える',
+    lede: '機能説明で止まりやすい企画を、読者の見方が変わる編集企画へ変換する手順。',
+    steps: [
+      { num: '01', text: 'クライアントの機能を見る' },
+      { num: '02', text: '参考案件の変換構造を探す' },
+      { num: '03', text: '読者の内面変化に置き換える' },
+      { num: '04', text: '広告から編集に変わったかを判定する' },
+    ],
+    applied: [
+      { chip: 'CW', text: 'ブランドストーリー企画' },
+      { chip: 'CW', text: '連載企画の刷新' },
+      { chip: 'BS', text: '記事企画・構成' },
+    ],
+  },
+  {
+    num: 'F · 02',
+    title: 'AI活用は、プロンプトよりも蓄積で決まる',
+    lede: '毎回ゼロからAIに聞くのではなく、文脈・判断・手順を残すことで精度を上げる考え方。',
+    body: 'AI活用の差は、プロンプトのうまさだけでは決まらない。過去の判断、文脈、手順が残っているほど、次の出力の精度が上がる。必要なのは、便利なプロンプト集ではなく、自分やチームの判断が蓄積される作業環境。',
+    applied: [
+      { chip: 'AI', text: '編集スキル設計' },
+      { chip: 'RO', text: '個人ナレッジ運用' },
+    ],
+  },
+  {
+    num: 'F · 03',
+    title: '人間が決めること、AIに渡すこと',
+    lede: 'AIに任せる領域が広がるほど、人間が持つべき判断の輪郭を明確にする。',
+    body: 'AIに渡せる作業は増えている。一方で、何を面白いと感じるか、どこに賭けるか、最終的に編集として成立したかを判断する部分は、人間が持つ必要がある。ワークフロー設計では、AIに渡す工程を増やすことと同時に、人間に残す判断を明確にする。',
+    applied: [
+      { chip: 'AI', text: '進行管理ワークフロー' },
+      { chip: 'AI', text: '確認・判断フロー設計' },
+      { chip: 'RO', text: '社内共有・登壇' },
+    ],
+  },
+];
+---
+
+<section class="section section-frameworks" id="frameworks" data-reveal>
+  <div class="container">
+    <SectionHead
+      num="03"
+      label="EDITORIAL FRAMEWORKS"
+      cap="編集現場で使っている方法論"
+      title="実績の裏側にある、判断のしかたを公開する。"
+      lede="普通のポートフォリオは成果物を見せる。ここでは、なぜその切り口にしたのか、どこまでAIに任せるのか、どう再現できる形にしたのかまで見せます。"
+    />
+
+    <div class="frameworks-list">
+      {
+        frameworks.map((fw) => (
+          <article class="framework-row">
+            <div class="row-meta">
+              <div class="fw-id-block">
+                <div class="fw-id-prefix">FRAMEWORK</div>
+                <div class="fw-id-num">{fw.num}</div>
+              </div>
+            </div>
+            <div class="row-content">
+              <h3 class="fw-title">{fw.title}</h3>
+              <p class="fw-lede">{fw.lede}</p>
+              {fw.steps && (
+                <ol class="fw-steps">
+                  {fw.steps.map((s) => (
+                    <li>
+                      <span class="fw-step-num">{s.num}</span>
+                      <span class="fw-step-text">{s.text}</span>
+                    </li>
+                  ))}
+                </ol>
+              )}
+              {fw.body && <p class="fw-body">{fw.body}</p>}
+              <div class="fw-applied">
+                <span class="fw-applied-label">Applied in →</span>
+                <span class="fw-applied-items">
+                  {fw.applied.map((a) => (
+                    <span class="fw-applied-item">
+                      <span class={chipClass[a.chip]}>{a.chip}</span>
+                      {a.text}
+                    </span>
+                  ))}
+                </span>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+import WorkCard from './WorkCard.astro';
+import { works } from '../data/works';
+---
+
+<section class="section-frame works-frame" id="works" aria-labelledby="works-title">
+  <div class="container frame-container">
+    <div class="frame-label">
+      <p class="section-kicker">Selected Works</p>
+      <h2 id="works-title">担当案件</h2>
+      <div class="short-rule"></div>
+    </div>
+    <div class="frame-content">
+      <div class="works-grid">
+        {works.map((work) => <WorkCard {...work} />)}
+      </div>
+    </div>
+  </div>
+</section>

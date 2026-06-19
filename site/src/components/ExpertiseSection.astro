@@ -1,0 +1,78 @@
+---
+import SectionHead from './SectionHead.astro';
+
+const items = [
+  {
+    letter: 'a.',
+    tag: 'EP',
+    name: '企画編集',
+    sub: '企業が伝えたいことをそのまま記事化せず、読者の関心と接続する編集企画へ翻訳する。',
+    services: [
+      'ブランドストーリー企画',
+      '連載設計',
+      '記事の切り口設計',
+      '企画書レビュー',
+    ],
+  },
+  {
+    letter: 'b.',
+    tag: 'AWD',
+    name: 'AIワークフロー設計',
+    sub: '企画、リサーチ、取材準備、構成、校正、共有にAIを組み込み、継続して使える流れにする。',
+    services: [
+      '編集工程のAI化',
+      'AIスキル設計',
+      'AI秘書の導入',
+      'チーム向けAIワークフロー設計',
+    ],
+  },
+  {
+    letter: 'c.',
+    tag: 'KS',
+    name: 'ナレッジ構造化',
+    sub: '属人化しやすい判断基準や制作ノウハウを、ドキュメント、チェックリスト、AIスキルとして再利用できる形に整える。',
+    services: [
+      '判断基準の言語化',
+      '制作ノウハウの整理',
+      'チェックリスト化',
+      'オンボーディング設計',
+    ],
+  },
+];
+---
+
+<section class="section section-expertise" id="expertise" data-reveal>
+  <div class="container">
+    <SectionHead
+      num="01"
+      label="EXPERTISE"
+      cap="何を支援できるか"
+      title="書くことだけでなく、判断が再利用される流れまで設計する。"
+      lede="企画の切り口、AIに渡す作業、人が決める基準。<br />別々の仕事に見えるものを、編集判断をチームで使える形にする仕事としてつなげています。"
+    />
+
+    <div class="expertise-list">
+      {
+        items.map((item) => (
+          <article class="expertise-item">
+            <div class="row-meta">
+              <div class="exp-id">
+                <span class="exp-id-letter">{item.letter}</span>
+                <span class="exp-id-tag">{item.tag}</span>
+              </div>
+            </div>
+            <div class="row-content">
+              <h3 class="exp-name">{item.name}</h3>
+              <p class="exp-sub">{item.sub}</p>
+              <ul class="exp-services">
+                {item.services.map((s) => (
+                  <li>{s}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

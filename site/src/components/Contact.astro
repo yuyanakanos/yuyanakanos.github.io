@@ -1,0 +1,28 @@
+---
+import MotifIcon from './MotifIcon.astro';
+import { profile } from '../data/siteData';
+---
+
+<section class="section-frame contact-frame" id="contact" aria-labelledby="contact-title">
+  <div class="container frame-container">
+    <div class="frame-label">
+      <p class="section-kicker">Contact</p>
+      <h2 id="contact-title">お問い合わせ</h2>
+      <div class="short-rule"></div>
+    </div>
+    <div class="frame-content contact-content">
+      <div class="contact-copy">
+        <p>お仕事のご相談・ご依頼など、お気軽にお問い合わせください。</p>
+        <a class="mail-link" href={profile.contactHref}>
+          <MotifIcon name="mail" />
+          <span>{profile.email}</span>
+        </a>
+      </div>
+      <a class="button button-outline" href={profile.contactHref}>
+        <span>お問い合わせフォームへ</span>
+        <MotifIcon name="arrow" />
+      </a>
+      <MotifIcon name="sparkle" class="contact-sparkle" />
+    </div>
+  </div>
+</section>

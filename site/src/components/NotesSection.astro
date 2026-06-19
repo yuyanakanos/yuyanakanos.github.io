@@ -1,0 +1,30 @@
+---
+import SectionHead from './SectionHead.astro';
+
+const categories = ['編集とAI', '企画の作り方', 'ナレッジ設計', '判断と働き方'];
+---
+
+<section class="section section-notes" id="notes" data-reveal>
+  <div class="container">
+    <SectionHead
+      num="04"
+      label="RESEARCH NOTES"
+      cap="編集とAIの研究ログ"
+      title="日々のメモではなく、編集判断を更新するための観察を置く。"
+    />
+
+    <div class="notes-empty">
+      <div class="row-meta">
+        <div class="status-tag">COMING SOON</div>
+      </div>
+      <div class="row-content">
+        <div class="note-placeholder">
+          <p>編集とAI、企画の作り方、ナレッジ設計、判断と働き方について、公開できる研究ログを準備中。</p>
+          <div class="note-categories">
+            {categories.map((c) => <span class="chip chip-cat">{c}</span>)}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

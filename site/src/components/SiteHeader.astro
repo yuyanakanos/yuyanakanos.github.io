@@ -1,0 +1,25 @@
+---
+const navItems = [
+  { href: '#expertise', label: '01 Expertise' },
+  { href: '#works', label: '02 Works' },
+  { href: '#frameworks', label: '03 Frameworks' },
+  { href: '#notes', label: '04 Notes' },
+  { href: '#contact', label: '05 Contact' },
+];
+---
+
+<header class="site-header">
+  <div class="container site-header-inner">
+    <div class="site-id">
+      <span class="site-id-name">Yuya Nakano</span>
+      <span class="site-id-role">Editor · Workflow Designer</span>
+    </div>
+    <div class="site-meta">
+      <span class="site-meta-line">PORTFOLIO</span>
+      <span class="site-meta-line">VOL.01 / 2026</span>
+    </div>
+    <nav class="site-nav">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+  </div>
+</header>

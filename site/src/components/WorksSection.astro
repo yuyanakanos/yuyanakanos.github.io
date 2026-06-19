@@ -1,0 +1,53 @@
+---
+import SectionHead from './SectionHead.astro';
+import WorkRow from './WorkRow.astro';
+import { works } from '../lib/portfolioContent';
+---
+
+<section class="section section-works" id="works" data-reveal>
+  <div class="container">
+    <SectionHead
+      num="02"
+      label="SELECTED WORKS"
+      cap="代表的な取り組み"
+      title="何を作ったかだけでなく、どう判断を形にしたかを見せる。"
+      lede="記事、AIワークフロー、社内共有、研究ログ。成果物の種類は違っても、中心にあるのは編集判断を再利用できる形にすることです。"
+    >
+      <div class="works-legend">
+        <span class="legend-item">
+          <span class="chip chip-cw">CW</span>
+          <span class="legend-name">Client Work</span>
+        </span>
+        <span class="legend-item">
+          <span class="chip chip-bs">BS</span>
+          <span class="legend-name">Brand Story</span>
+        </span>
+        <span class="legend-item">
+          <span class="chip chip-ai">AI</span>
+          <span class="legend-name">AI Implementation</span>
+        </span>
+        <span class="legend-item">
+          <span class="chip chip-ro">RO</span>
+          <span class="legend-name">Research Output</span>
+        </span>
+      </div>
+    </SectionHead>
+
+    {
+      works.length > 0 ? (
+        <div class="works-list">
+          {works.map((w) => <WorkRow {...w} chips={[...w.chips]} />)}
+        </div>
+      ) : (
+        <div class="works-empty">
+          <div class="row-meta">
+            <div class="status-tag">UNDER REVIEW</div>
+          </div>
+          <div class="row-content">
+            <p>公開可能な実績を選定中です。公開可否を確認したものから順に掲載します。</p>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>

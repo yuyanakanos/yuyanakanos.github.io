@@ -1,0 +1,23 @@
+---
+import MotifIcon from './MotifIcon.astro';
+import { navItems, profile } from '../data/siteData';
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <MotifIcon name="sparkle" />
+      <div>
+        <p>{profile.name}</p>
+        <small>{profile.role}</small>
+      </div>
+    </div>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <div class="footer-copy">
+      <span>© {profile.copyrightYear} {profile.name}</span>
+      <MotifIcon name="sun" />
+    </div>
+  </div>
+</footer>

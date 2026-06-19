@@ -1,0 +1,58 @@
+---
+type ChipKind = 'CW' | 'BS' | 'AI' | 'RO';
+
+interface Props {
+  id: string;
+  chips: ChipKind[];
+  role: string;
+  title: string;
+  summary: string;
+  href?: string;
+}
+
+const { id, chips, role, title, summary, href } = Astro.props;
+
+const chipClass: Record<ChipKind, string> = {
+  CW: 'chip chip-cw',
+  BS: 'chip chip-bs',
+  AI: 'chip chip-ai',
+  RO: 'chip chip-ro',
+};
+---
+
+<article class="work-row">
+  {
+    href ? (
+      <a href={href} target="_blank" rel="noopener noreferrer" class="work-link">
+        <div class="row-meta">
+          <div class="work-id">{id}</div>
+          <div class="work-chips">
+            {chips.map((c) => <span class={chipClass[c]}>{c}</span>)}
+          </div>
+          <div class="work-role">{role}</div>
+        </div>
+        <div class="row-content">
+          <h3 class="work-title">
+            {title}
+            <span class="link-ext">↗</span>
+          </h3>
+          <p class="work-summary">{summary}</p>
+        </div>
+      </a>
+    ) : (
+      <>
+        <div class="row-meta">
+          <div class="work-id">{id}</div>
+          <div class="work-chips">
+            {chips.map((c) => <span class={chipClass[c]}>{c}</span>)}
+          </div>
+          <div class="work-role">{role}</div>
+        </div>
+        <div class="row-content">
+          <h3 class="work-title">{title}</h3>
+          <p class="work-summary">{summary}</p>
+        </div>
+      </>
+    )
+  }
+</article>
